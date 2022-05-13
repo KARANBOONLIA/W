@@ -1,0 +1,22 @@
+Hello World - CC 
+
+app.yaml 
+
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers: 
+- url: /
+  script: test.app
+
+----------------------------------------------------------------------------------------------------
+test.py
+
+import webapp2
+
+class MainPage(webapp2.RequestHandler):
+	def get(self):
+		self.response.write("Hello World")
+
+app = webapp2.WSGIApplication([('/', MainPage),], debug=True)
